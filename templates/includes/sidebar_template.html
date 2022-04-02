@@ -1,0 +1,107 @@
+{% load static %}
+<nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
+  <!-- Navbar brand for xl START -->
+  <div class="d-flex align-items-center">
+     <a class="navbar-brand" href="index.html">
+     <img class="navbar-brand-item" src="{% static 'assets/images/skill_bunny_logo.png/' %}" style="width: 200px;height: 120px;"  alt="">
+     </a>
+  </div>
+  <!-- Navbar brand for xl END -->
+  <div class="offcanvas offcanvas-start flex-row custom-scrollbar h-100" data-bs-backdrop="true" tabindex="-1" id="offcanvasSidebar">
+     <div class="offcanvas-body sidebar-content d-flex flex-column bg-dark">
+        <!-- Sidebar menu START -->
+        <ul class="navbar-nav flex-column" id="navbar-sidebar">
+           <!-- Menu item 1 -->
+           <li class="nav-item"><a href="/HOD/Home" class="nav-link active"><i class="bi bi-house fa-fw me-2"></i>Dashboard</a></li>
+           <!-- Title -->
+           <li class="nav-item ms-2 my-2">Pages</li>
+           <!-- menu item 2 -->
+           <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
+              <i class="bi bi-basket fa-fw me-2"></i>Courses
+              </a>
+              <!-- Submenu -->
+              <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navbar-sidebar">
+                 <li class="nav-item"> <a class="nav-link" href="{% url 'all_courses' %}">All Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'course_category' %}">Course Category</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="{% url 'course_detail' %}">Course Detail</a></li>
+              </ul>
+           </li>
+           <!-- Menu item 3 -->
+           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#collapstuedent" role="button" aria-expanded="false" aria-controls="collapsepage">
+               <i class="fas fa-user-graduate fa-fw me-2"></i>Students
+            </a>
+            <!-- Submenu -->
+            <ul class="nav collapse flex-column" id="collapstuedent" data-bs-parent="#navbar-sidebar">
+               <li class="nav-item"> <a class="nav-link" href="{% url 'add_student' %}">Add Student</a></li>
+               <li class="nav-item"> <a class="nav-link" href="{% url 'view_student' %}">All Student</a></li>
+               <li class="nav-item"> <a class="nav-link" href="/studentlist/">View Student</a></li>
+               
+               
+            </ul>
+         </li>
+           
+           
+           
+           <!-- Menu item 4 -->
+           <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapseinstructors" role="button" aria-expanded="false" aria-controls="collapseinstructors">
+              <i class="fas fa-user-tie fa-fw me-2"></i>Instructors
+              </a>
+              <!-- Submenu -->
+              <ul class="nav collapse flex-column" id="collapseinstructors" data-bs-parent="#navbar-sidebar">
+               <li class="nav-item"> <a class="nav-link" href="{% url 'add_instructor' %}"> Add Instructor </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="/HOD/instructors">All Instructors</a></li>
+                 
+                 <li class="nav-item"> <a class="nav-link" href="{% url 'instructors_detail' %}">Instructor Detail</a></li>
+                 <li class="nav-item"> 
+                    <a class="nav-link" href="{% url 'instructors_requests' %}">Instructor requests
+                    <span class="badge bg-success text-white rounded-circle ms-2">2</span>
+                    </a>
+                 </li>
+              </ul>
+           </li>
+          {% comment %}
+           <!-- Menu item 5 -->
+           <li class="nav-item"> <a class="nav-link" href="{% url 'admin_reviews' %}"><i class="far fa-comment-dots fa-fw me-2"></i>Reviews</a></li>
+           <!-- Menu item 6 -->
+           <li class="nav-item"> <a class="nav-link" href="{% url 'admin_earnings' %}"><i class="far fa-chart-bar fa-fw me-2"></i>Earnings</a></li>
+           <!-- Menu item 7 -->
+           <li class="nav-item"> <a class="nav-link" href="{% url 'admin_settings' %}"><i class="fas fa-user-cog fa-fw me-2"></i>Admin Settings</a></li>
+           <!-- Menu item 8 -->
+           {% endcomment %}
+           {% comment %}
+           <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapseauthentication" role="button" aria-expanded="false" aria-controls="collapseauthentication">
+              <i class="bi bi-lock fa-fw me-2"></i>Authentication
+              </a>
+              <!-- Submenu -->
+              <ul class="nav collapse flex-column" id="collapseauthentication" data-bs-parent="#navbar-sidebar">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'sign_up' %}">Sign Up</a></li> 
+                 <li class="nav-item"> <a class="nav-link" href="sign-in.html">Sign In</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="forgot-password.html">Forgot Password</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="admin-error-404.html">Error 404</a></li>
+              </ul>
+           </li>{% endcomment %}
+           
+        </ul>
+        <!-- Sidebar menu end -->
+        <!-- Sidebar footer START -->
+        <div class="px-3 mt-auto pt-3">
+           <div class="d-flex align-items-center justify-content-between text-primary-hover">
+              <a class="h5 mb-0 text-body" href="admin-setting.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
+              <i class="bi bi-gear-fill"></i>
+              </a>
+              <a class="h5 mb-0 text-body" href="index.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
+              <i class="bi bi-globe"></i>
+              </a>
+              <a class="h5 mb-0 text-body" href="sign-in.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign out">
+              <i class="bi bi-power"></i>
+              </a>
+           </div>
+        </div>
+        <!-- Sidebar footer END -->
+     </div>
+  </div>
+</nav>

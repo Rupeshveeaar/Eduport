@@ -1,0 +1,115 @@
+{% extends 'Student/Includes/base.html' %}
+{% load static %}
+{% block main-content %}
+
+			<!-- Main content START -->
+			<div class="col-xl-9">
+
+				<!-- Payment method START -->
+				<div class="card bg-transparent border rounded-3 mb-4 z-index-9">
+					<!-- Card header START -->
+					<div class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom">
+						<h3 class="mb-2 mb-sm-0">Payment methods</h3>
+						<a href="#" class="btn btn-sm btn-primary-soft mb-0" data-bs-toggle="modal" data-bs-target="#addNewcard">Add new card</a>
+					</div>
+					<!-- Card header END -->
+
+					<!-- Card body START -->
+					<div class="card-body">
+						<div class="row g-4">
+							<div class="col-12">
+								<div class="accordion accordion-circle" id="accordioncircle">
+									<!-- Credit or debit card START -->
+									<div class="accordion-item mb-3">
+										<h6 class="accordion-header font-base" id="heading-1">
+											<button class="accordion-button bg-white rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+												Credit or Debit Card 
+											</button>
+										</h6>
+										<div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordioncircle">
+											<!-- Accordion body -->
+											<div class="accordion-body">
+												<!-- Form START -->
+												<form class="row text-start g-3">
+													<!-- Card number -->
+													<div class="col-12">
+														<label class="form-label">Card Number <span class="text-danger">*</span></label>
+														<div class="position-relative">
+															<input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+															<img src="assets\images\client\visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+														</div>	
+													</div>
+													<!-- Expiration Date -->
+													<div class="col-md-6">
+														<label class="form-label">Expiration date <span class="text-danger">*</span></label>
+														<div class="input-group">
+															<input type="text" class="form-control" maxlength="2" placeholder="Month">
+															<input type="text" class="form-control" maxlength="4" placeholder="Year">
+														</div>
+													</div>	
+													<!--Cvv code  -->
+													<div class="col-md-6">
+														<label class="form-label">CVV / CVC <span class="text-danger">*</span></label>
+														<input type="text" class="form-control" maxlength="3" placeholder="xxx">
+													</div>
+													<!-- Card name -->
+													<div class="col-12">
+														<label class="form-label">Name on Card <span class="text-danger">*</span></label>
+														<input type="text" class="form-control" aria-label="name of card holder" placeholder="Enter name">
+													</div>
+												</form>
+												<!-- Form END -->
+											</div>
+										</div>
+									</div>
+									<!-- Credit or debit card END -->
+
+									<!-- Net banking START -->
+									<div class="accordion-item mb-3">
+										<h6 class="accordion-header font-base" id="heading-2">
+											<button class="accordion-button collapsed bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+												Pay with Net Banking
+											</button>
+										</h6>
+										<div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordioncircle">
+											<!-- Accordion body -->
+											<div class="accordion-body">
+												<!-- Form START -->
+												<form class="row text-start g-3">
+													<p class="mb-1">In order to complete your transaction, we will transfer you over to Eduport secure servers.</p>
+													<p class="my-0">Select your bank from the drop-down list and click proceed to continue with your payment.</p>
+													<!-- Select bank -->
+													<div class="col-md-6">
+														<select class="form-select form-select-sm js-choice border-0" aria-label=".form-select-sm">
+															<option value="">Please choose one</option>
+															<option>Bank of America</option>
+															<option>Bank of India</option>
+															<option>Bank of London</option>
+														</select>
+													</div>
+												</form>
+												<!-- Form END -->
+											</div>
+										</div>
+									</div>
+									<!-- Net banking END -->
+								</div>
+							</div>
+						</div>	
+					</div>
+					<!-- Card body START -->
+				</div>
+				<!-- Payment method END -->
+
+				<!-- Billing address START -->
+				<div class="card bg-transparent border rounded-3 mb-4">
+					<!-- Card header START -->
+					<div class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom">
+						<h3 class="mb-2 mb-sm-0">Billing address</h3>
+						<a href="#" class="btn btn-sm btn-primary-soft mb-0">Add new address</a>
+					</div>
+					<!-- Card header END -->
+
+					<!-- Card body START -->
+					<div class="card-body">
+						{% endblock main-content %}

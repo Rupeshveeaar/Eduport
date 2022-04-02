@@ -1,0 +1,224 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+       
+       <!-- row -->
+       <div class="container-fluid" >
+          <div class="col-lg-12">
+             <div class="profile card card-body px-3 pt-3 pb-0">
+                <div class="profile-head">
+                   <div class="photo-content">
+                      <div class="cover-photo rounded"></div>
+                   </div>
+                   <div class="profile-info">
+                      <div class="profile-photo">
+                       
+                         <img src="/media/{{i.profile_img}}" class="img-fluid rounded-circle" alt="">
+                       
+                      </div>
+                      <div class="profile-details">
+                        
+                        
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="container-fluid">
+    <div class="card">
+       <div class="card-body">
+         <div class="settings-form">
+             <h4 class="text-primary">Add Instructor</h4>
+
+             {% include 'includes/messages.html' %}
+             
+             <form action="/HOD/add_instructor" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div >
+                   <div class="mb-3 cod-md-12 ">
+                      <label class="form-label">Profile Pic</label>
+                      <input type="file" class="form-control" name = "profile_pic" required>
+                   </div>
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">First Name</label>
+                      <input type="text"  class="form-control" value= "" name="first_name" required>
+                   </div>
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">Last Name</label>
+                      <input type="text"  class="form-control" value= "" name = "last_name" required>
+                   </div>
+                </div>
+                <div >
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label"> Email</label>
+                      <input type="email"  class="form-control" value = "" name="email" required >
+                   </div>
+                   <div class="mb-3 col-md-12">
+                     <label class="form-label">Username</label>
+                     <input type="text"  class="form-control" value = "" name="username" required>
+                  </div>
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">Password</label>
+                      <input type="password" class="form-control" name="password" required>
+                   </div>
+    
+
+ 
+                   <div class="mb-3 col-md-12">
+                    <label for="exampleFormControlTextarea4">Qualifications</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" name="Qualification" required></textarea>
+                   </div>
+                   
+                   <div class="mb-3 col-md-12">
+                     <label for="exampleFormControlTextarea4">Addres</label>
+                     <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" name="address" required></textarea>
+                    </div>
+  
+ 
+ 
+                   <div class="mb-3 col-md-12">
+                       <label class="form-label">Gender</label>
+                        <select class="form-select" aria-label="Default select example" name="gender" required>
+                            <label class="form-label">Gender</label>
+                            <option selected>Selected Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Other</option>
+                            
+                            
+                        </select>
+                   </div>
+
+
+                   {% comment %} <div class="mb-3 col-md-12">
+                    <label class="form-label">Course</label>
+                    <select class="form-select" aria-label="Default select example" name="course_id" required>
+                        <option selected>Select Course</option> {% endcomment %}
+                        {% comment %} {% for i in course  %}
+
+                           <option value="{{i.id}}">{{i.name}}</option>
+
+                        {% endfor %}
+                      </select>
+                   </div> {% endcomment %}
+ 
+
+                   {% comment %} <div class="mb-3 col-md-12">
+                    <label class="form-label">Session</label>
+                    <select class="form-select" aria-label="Default select example" name="session_year_id" required>
+                        <option selected>Select Session Year</option>
+                        {% for i in session_year  %}
+
+                           <option value="{{i.id}}">{{i.session_start}} To {{i.session_end}}</option>
+
+                        {% endfor %}
+                        
+                      </select>
+                   </div> {% endcomment %}
+ 
+                   
+                </div>
+                <div class = "col-md-6">
+                   <button type="submit" class= "btn btn-primary">Add Instructor</button>
+                </div>
+               
+                
+             </form>
+          </div>
+          {% comment %} <div class="profile-tab">
+             <div class="custom-tab-1">
+                <ul class="nav nav-tabs">
+                   <li class="nav-item"><a href="#profile-settings" data-bs-toggle="tab" class="nav-link">Setting</a>
+                   </li>
+                </ul>
+                <div class="tab-content">
+                   <div id="profile-settings" class="tab-pane fade">
+                      <div class="pt-3">
+                         <div class="settings-form">
+                            <h4 class="text-primary">Account Setting</h4>
+                            <form>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Old Email</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Old Password</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">New Email</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Confirm New Email</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">New Password</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Confirm Password</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="mb-3">
+                                  <label class="form-label">Address</label>
+                                  <input type="text" placeholder="1234 Main St" class="form-control">
+                               </div>
+                               <div class="mb-3">
+                                  <label class="form-label">New Address</label>
+                                  <input type="text" placeholder="Apartment, studio, or floor" class="form-control">
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">City</label>
+                                     <input type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-4">
+                                     <label class="form-label">State</label>
+                                     <select class="form-control default-select wide" id="inputState">
+                                        <option selected="">Choose...</option>
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                     </select>
+                                  </div>
+                                  <div class="mb-3 col-md-2">
+                                     <label class="form-label">Zip</label>
+                                     <input type="text" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="mb-3">
+                                  <div class="form-check custom-checkbox">
+                                     <input type="checkbox" class="form-check-input" id="gridCheck">
+                                     <label class="form-check-label form-label" for="gridCheck"> Confirm</label>
+                                  </div>
+                               </div>
+                               <button class="btn btn-primary" type="submit">Change Settings
+                               </button>
+                            </form>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div> {% endcomment %}
+       </div>
+    </div>
+ </div>
+ </div>
+ 
+
+
+
+ {% endblock content %}

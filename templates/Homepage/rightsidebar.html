@@ -1,0 +1,102 @@
+{% extends 'Homepage/base.html' %}
+{% load static %}
+{% block main-content %}
+
+
+<!-- ****** MAIN CONTENT START ****** -->
+<main>
+
+
+
+<section class="pt-5">
+{% for course in course %} 
+  <!-- Right sidebar START -->
+  <div class="col-xl-4">
+    <div class="row mb-0">
+        <div class="col-md-6 col-xl-12">
+            <!-- Order summary START -->
+            <form action="" method="POST">
+                {% csrf_token %}
+            <div class="card card-body shadow p-4 mb-4">
+              <!-- Title -->
+              <h4 class="mb-4">Order Summary</h4>
+              
+              
+              <div class="row g-3">
+              <!-- Image -->
+              {% for course in course %}
+              <div class="col-sm-4">
+              <img class="rounded" src="/media/{{i.profile_course_pic}}" alt="">
+              </div>
+              <!-- Info -->
+              {% comment %} <div class="col-sm-8">
+              <h6 class="mb-0"><a href="#">The Complete Video Production Bootcamp</a></h6>
+              <!-- Info -->
+              <div class="d-flex justify-content-between align-items-center mt-3">
+              <!-- Price -->
+              <span class="text-success">$350</span>
+              <!-- Remove and edit button -->
+              <div class="text-primary-hover">
+              <a href="#" class="text-body me-2"><i class="bi bi-trash me-1"></i>Remove</a>
+              <a href="#" class="text-body me-2"><i class="bi bi-pencil-square me-1"></i>Edit</a>
+              </div>
+              </div>
+              </div>{% endcomment %}
+              </div>
+              <!-- Course item END -->
+              <!-- Price and detail -->
+              <ul class="list-group list-group-borderless mb-2">
+              <li class="list-group-item px-0 d-flex justify-content-between">
+              <span class="h6 fw-light mb-0">Price</span>
+              <span class="h6 fw-light mb-0 fw-bold">{{i.course_price}}</span>
+              </li>
+              <li class="list-group-item px-0 d-flex justify-content-between">
+              <!-- <span class="h6 fw-light mb-0">Coupon Discount</span> -->
+              <!-- <span class="text-danger">-$20</span> -->
+              </li>
+              <li class="list-group-item px-0 d-flex justify-content-between">
+              <span class="h5 mb-0">Total</span>
+              
+              {% comment %} <input class="border-0 h6 fw-light mb-0 fw-bold" type="text" value="{{i.course_price}}" name="total" readonly> {% endcomment %}
+              <span class="h5 mb-0" name="total">Rs.{{i.course_price}}</span>
+              <input type="text" value="{{i.course_price}}" name="total_amt">
+              </li>
+              </ul>
+              {% endfor %}
+              <!-- Button -->
+               <div class="d-grid">
+              <a id="rzp-button1" ><button type="submit" class="btn btn-lg btn-success">Continue</button></a>
+              
+              </div> 
+              {% comment %} <div class="d-grid">
+                <a id="rzp-button1" ><button type="submit" class="btn btn-lg btn-success">Continue</button></a>
+                
+                </div>  {% endcomment %}
+             <a href="{% url 'right' %}"> <button type="button" class="btn btn-primary">Primary</button></a>
+              
+
+           </form>
+           
+              <!-- Content -->
+              <!-- <p class="small mb-0 mt-2 text-center">By completing your purchase, you agree to these <a href="#"><strong>Terms of Service</strong></a></p> -->
+              </div>
+              
+  </ul>
+
+                <!-- Button -->
+               
+                <!-- Content -->
+                
+
+            </div>
+            <!-- Order summary END -->
+        </div>
+
+     
+    </div><!-- Row End -->
+</div>
+{% endfor %}
+<!-- Right sidebar END -->
+</section>
+
+{% endblock main-content %}

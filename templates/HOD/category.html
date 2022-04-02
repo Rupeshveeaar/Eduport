@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="card">
+       <div class="card-body">
+         <div class="settings-form">
+             <h4 class="text-primary">Create Category</h4>
+
+             {% include 'includes/messages.html' %}
+             
+             <form  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div >
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">Category Name</label>
+                      <input type="text"  class="form-control" value= "{{cate_id.category_name}}" name="category_name" required>
+                   </div>
+                   
+                </div>
+                <div class = "col-md-6">
+                   <button type="submit" class= "btn btn-primary">Create Category</button>
+                </div>
+               
+                
+             </form>
+          </div>
+
+       </div>
+    </div>
+ </div>
+ {% endblock content %}

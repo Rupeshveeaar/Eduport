@@ -1,0 +1,112 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+<!-- Page main content START -->
+<div class="page-content-wrapper border">
+   <!-- Title -->
+   <div class="row">
+      <div class="col-12 mb-3">
+         <h1 class="h3 mb-2 mb-sm-0">Profile</h1>
+      </div>
+   </div>
+   <div class="row g-4">
+      <!-- Left side START -->
+      <div class="col-xl-3 shadow text-center mx-auto">
+         <!-- Tab START -->
+         <ul class="nav nav-pills nav-tabs-bg-light flex-column">
+            <img class="avatar-img rounded-circle shadow mt-3"
+               src="/media/{{request.user.profile_pic}}" alt="avatar">                                                                 
+
+            
+               {% comment %} <h5  class="" style="margin-left: 3rem;margin-top: 1rem;">
+               &nbsp;
+            </h5> {% endcomment %}
+         </ul>
+         <hr>
+         
+         <div class="row letter-spacing: 2px;">
+           
+            <div class="col text-center">
+               <label for="" class="font-weight-bold "><strong>Username</strong></label>
+               <p class="text-primary">{{user.username}}</p>
+            </div>
+            <br>
+            
+            <div class="col">
+               <label for=""><strong>Full Name</strong></label>
+               <p class="text-primary">{{user.first_name}} {{user.last_name}}</p>
+            </div>
+           
+            
+            <div class="col">
+               <label for=""><strong>Email</strong></label>
+               <p class="text-primary">{{user.email}}</p>
+            </div>
+            
+         </div>
+         
+      </div>
+      <!-- Left side END -->
+      <!-- MYCODE -->
+      <!-- ENDMYCODE -->
+      <!-- Right side START -->
+      <div class="col-xl-9">
+         <!-- Tab Content START -->
+         <div class="tab-content">
+            <!-- Personal Information content START -->
+            <div class="tab-pane show active" id="tab-1">
+               <div class="card shadow">
+                  <!-- Card header -->
+                  <div class="card-header border-bottom">
+                     {% include 'includes/messages.html' %}
+                     <form action="{% url 'hodprofile' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div >
+                           <div class="mb-3 cod-md-12 ">
+                              <label class="form-label">Profile Pic</label>
+                              <input type="file" class="form-control" name = "profile_pic" value="/media/{{user.profile_pic}}" >
+                              <!-- <input type="text" class="form-control" name = "instructor_id" value = "{% for i  in instructor  %} {{i.admin.id}}{% endfor %}" hidden > -->
+                              {% comment %} <input type="text" class="form-control" name = "instructor_id" value="{{request.user.id}}" > {% endcomment %}
+                           </div>
+                           <div class="mb-3 col-md-12">
+                              <label class="form-label">First Name</label>
+                              {% comment %} <p>{{user.username}}</p {% endcomment %}
+                              <input type="text"  class="form-control" value= "{{user.first_name}}" name="first_name" required>
+                           </div>
+                           <div class="mb-3 col-md-12">
+                              <label class="form-label">Last Name</label>
+                              <input type="text"  class="form-control" value= "{{request.user.last_name}}" name = "last_name" required>
+                           </div>
+                        </div>
+                        <div >
+                           <div class="mb-3 col-md-12">
+                              <label class="form-label"> Email</label>
+                              <input type="email"  class="form-control" value = "{{request.user.email}}" name="email" required readonly >
+                           </div>
+                           <div class="mb-3 col-md-12">
+                              <label class="form-label">Username</label>
+                              <input type="text"  class="form-control" value = "{{request.user.username}}" name="username" required readonly>
+                           </div>
+                        </div>
+                        <div class = "col-md-6">
+                           <button type="submit" class= "btn btn-primary">Update Profile</button>
+                        </div>
+                     </form>
+                  </div>
+                  <!-- MyCode -->
+                  <!-- EndMycode -->
+               </div>
+            </div>
+         </div>
+         <!-- Tab Content END -->
+      </div>
+      <!-- Right side END -->
+   </div>
+   <!-- Row END -->		
+</div>
+<!-- Page main content END -->
+</div>
+<!-- Page content END -->
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock  %}

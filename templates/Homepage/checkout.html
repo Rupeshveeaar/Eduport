@@ -1,0 +1,225 @@
+{% extends 'Homepage/base.html' %}
+{% load static %}
+{% block main-content %}
+
+
+<!-- ****** MAIN CONTENT START ****** -->
+<main>
+
+   
+    
+    <!-- =======================
+    Page content START -->
+    <section class="pt-5">
+        <div class="container">
+        
+            <div class="row g-4 g-sm-5">
+                <!-- Main content START -->
+                <div class="col-xl-8 mb-4 mb-sm-0">
+                   
+    
+                    <!-- Personal info START -->
+                    <div class="card card-body shadow p-4">
+                        <!-- Title -->
+                        <h5 class="mb-0">Personal Details</h5>
+                            
+                        <!-- Form START -->
+                        <form class="row g-3 mt-0" method="POST">
+                           {% comment %} {% csrf_token %} {% endcomment %}
+                           
+                            <!-- Name -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="yourName" class="form-label">Your name *</label>
+                                <input type="text" class="form-control" id="yourName" placeholder="Name" value="{{user.username}}" name="username" readonly>
+                                <input type="text" class="form-control" id="yourName" placeholder="Name" value="{{order_id}}" name="order_id" hidden >
+                                <input type="text" class="form-control" id="yourName" placeholder="Name" value="{{payment}}" name="payment" hidden>
+                            </div>
+                            <!-- Email -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="emailInput" class="form-label">Email address *</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="Email" value="{{user.email}}" name="email" readonly>
+                            </div>
+                            <!-- Number -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="mobileNumber" class="form-label">Mobile number *</label>
+                                <input type="text" class="form-control" id="mobileNumber" placeholder="Mobile number" name="mob">
+                            </div>
+                            <!-- Country option -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="mobileNumber" class="form-label">Select country *</label>
+                                <select class="form-select js-choice" aria-label=".form-select-lg" name="country">
+                                    <option value="">Select country</option>
+                                    <option>India</option>
+                                    <option>China</option>
+                                    <option>USA</option>
+                                    <option>Canada</option>
+                                    <option>Paris</option>
+                                    <option>Australia</option>
+                                    <option>Japan</option>
+                                    <option>Brazil</option>
+                                </select>
+                            </div>
+                            <!-- State option -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="mobileNumber" class="form-label">Select state *</label>
+                                <select class="form-select js-choice" aria-label=".form-select-lg" name="state">
+                                    <option value="">Select state</option>
+                                    <option>Maharashtra</option>
+                                    <option>Delhi</option>
+                                    <option>Punjab</option>
+                                    <option>London</option>
+                                    <option>New york</option>
+                                    <option>California</option>
+                                </select>
+                            </div>
+                            <!-- Postal code -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="postalCode" class="form-label">Postal code *</label>
+                                <input type="text" class="form-control" id="postalCode" placeholder="PIN code" name="pin">
+                            </div>
+                            <!-- Address -->
+                            <div class="col-md-6 bg-light-input">
+                                <label for="address" class="form-label">Address *</label>
+                                <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+                            </div>
+
+                            {% for i in course %}
+                        <input class="border-0 h6 fw-light mb-0 fw-bold" type="text" value="{{i.course_price}}" name="total" >
+                        {% endfor %}
+                            <!-- Cards -->
+                           
+                            <!-- Button -->
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary mb-0" >Save changes</button>
+                            </div>
+                        </form> 
+                        <!-- Form END -->
+    
+                       
+                    </div>
+                    <!-- Personal info END -->
+                </div>
+                <!-- Main content END -->
+    
+                <!-- Right sidebar START -->
+                <div class="col-xl-4">
+                    <div class="row mb-0">
+                        <div class="col-md-6 col-xl-12">
+                            <!-- Order summary START -->
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                            <div class="card card-body shadow p-4 mb-4">
+                              <!-- Title -->
+                              <h4 class="mb-4">Order Summary</h4>
+                              
+                              
+                              <div class="row g-3">
+                              <!-- Image -->
+                              {% for i in course %}
+                              <div class="col-sm-4">
+                              <img class="rounded" src="/media/{{i.profile_course_pic}}" alt="">
+                              </div>
+                              <!-- Info -->
+                              {% comment %} <div class="col-sm-8">
+                              <h6 class="mb-0"><a href="#">The Complete Video Production Bootcamp</a></h6>
+                              <!-- Info -->
+                              <div class="d-flex justify-content-between align-items-center mt-3">
+                              <!-- Price -->
+                              <span class="text-success">$350</span>
+                              <!-- Remove and edit button -->
+                              <div class="text-primary-hover">
+                              <a href="#" class="text-body me-2"><i class="bi bi-trash me-1"></i>Remove</a>
+                              <a href="#" class="text-body me-2"><i class="bi bi-pencil-square me-1"></i>Edit</a>
+                              </div>
+                              </div>
+                              </div>{% endcomment %}
+                              </div>
+                              <!-- Course item END -->
+                              <!-- Price and detail -->
+                              <ul class="list-group list-group-borderless mb-2">
+                              <li class="list-group-item px-0 d-flex justify-content-between">
+                              <span class="h6 fw-light mb-0">Price</span>
+                              <span class="h6 fw-light mb-0 fw-bold">{{i.course_price}}</span>
+                              </li>
+                              <li class="list-group-item px-0 d-flex justify-content-between">
+                              <!-- <span class="h6 fw-light mb-0">Coupon Discount</span> -->
+                              <!-- <span class="text-danger">-$20</span> -->
+                              </li>
+                              <li class="list-group-item px-0 d-flex justify-content-between">
+                              <span class="h5 mb-0">Total</span>
+                              
+                              {% comment %} <input class="border-0 h6 fw-light mb-0 fw-bold" type="text" value="{{i.course_price}}" name="total" readonly> {% endcomment %}
+                              <span class="h5 mb-0" name="total">Rs.{{i.course_price}}</span>
+                              <input type="text" value="{{i.course_price}}" name="total_amt">
+                              </li>
+                              </ul>
+                              {% endfor %}
+                              <!-- Button -->
+                               <div class="d-grid">
+                              <a id="rzp-button1" ><button type="submit" class="btn btn-lg btn-success">Continue</button></a>
+                              
+                              </div> 
+                             
+                                {% comment %} <h5 class="card-title fw-normal"><a href="{% url 'rightside' course.id %}">{{course.course_name}}</a></h5> {% endcomment %}
+                                {% comment %} <h5 class="card-title fw-normal"><a href="{% url 'rightside' course.id %}">{{course.course_name}}</a></h5> {% endcomment %}
+                            
+                                {% comment %} <a href="{% url 'rightside' course.id %}">{{course.course_name}}</a> {% endcomment %}
+                           </form>
+                           
+                              <!-- Content -->
+                              <!-- <p class="small mb-0 mt-2 text-center">By completing your purchase, you agree to these <a href="#"><strong>Terms of Service</strong></a></p> -->
+                              </div>
+                              
+                  </ul>
+    
+                                <!-- Button -->
+                               
+                                <!-- Content -->
+                                
+    
+                            </div>
+                            <!-- Order summary END -->
+                        </div>
+    
+                     
+                    </div><!-- Row End -->
+                </div>
+                <!-- Right sidebar END -->
+    
+            </div><!-- Row END -->
+        </div>
+    </section>
+    <!-- =======================
+    Page content END -->
+    
+    </main>
+    <!-- ****** MAIN CONTENT END ****** -->
+    <form action='' method="POST">
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      <script>
+         var options = {
+             "key": "rzp_test_czVP739sBN5blU", // Enter the Key ID generated from the Dashboard
+             "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+             "currency": "INR",
+             "name": "Acme Corp",
+             "description": "Test Transaction",
+             "image": "https://example.com/your_logo",
+             "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+             "callback_url": "http://127.0.0.1:8000/success",
+             "notes": {
+                 "address": "Razorpay Corporate Office"
+             },
+             "theme": {
+                 "color": "#3399cc"
+             }
+         };
+         var rzp1 = new Razorpay(options);
+         document.getElementById('rzp-button1').onclick = function(e){
+             rzp1.open();
+             e.preventDefault();
+         }
+      </script>
+   </form>
+
+
+{% endblock main-content %}

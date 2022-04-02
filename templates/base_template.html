@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Eduport- LMS, Education and Course Theme</title>
+      <!-- Meta Tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="author" content="Webestica.com">
+      <meta name="description" content="Eduport- LMS, Education and Course Theme">
+      <!-- Theme CSS -->
+      {% comment %} 
+      <link id="style-switch" rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+      {% endcomment %}
+      {% comment %} 
+      <link rel="stylesheet" href="/assets/css/style.css">
+      {% endcomment %}
+      <link rel="stylesheet" href="{% static 'assets/css/style1.css' %}">
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+      <!-- Google Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+      <!-- Plugins CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/all.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/apexcharts/css/apexcharts.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/overlay-scrollbar/css/OverlayScrollbars.min.css' %}">
+      
+   </head>
+   <body>
+      <!-- **************** MAIN CONTENT START **************** -->
+      <main>
+         <!-- Sidebar START -->
+          {% include 'includes/sidebar_template.html' %}
+         <!-- Sidebar END -->
+         <!-- Page content START -->
+         <div class="page-content">
+            <!-- Top bar START -->
+            {% include 'includes/header.html' %}
+            <!-- Top bar END -->
+            <!-- Page main content START -->
+            <div class="page-content-wrapper border">
+              {% block content %}{% endblock content %}
+               <!-- Title -->
+              
+            <!-- Page main content END -->
+           {% include 'includes/footer.html' %}
+         </div>
+         <!-- Page content END -->
+      </main>
+      <!-- **************** MAIN CONTENT END **************** -->
+      <!-- Back to top -->
+      <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+      <!-- Bootstrap JS -->
+      <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+      <!-- Vendors -->
+      <script src="{% static 'assets/vendor/purecounterjs/dist/purecounter_vanilla.js' %}"></script>
+      <script src="{% static 'assets/vendor/apexcharts/js/apexcharts.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/overlay-scrollbar/js/OverlayScrollbars.min.js' %}"></script>
+      <!-- Template Functions -->
+      <script src="{% static 'assets/js/functions.js' %}"></script>
+   </body>
+</html>

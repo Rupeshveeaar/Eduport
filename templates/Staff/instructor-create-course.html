@@ -1,0 +1,75 @@
+{% extends 'Staff/include/base.html' %}
+{% load static %}
+{% block main-content %}
+<div class="col-xl-9">
+	<div class="card bg-transparent border rounded-3">
+        <div class="content-body">
+            <div class="container-fluid">
+               
+               <!-- row -->
+               <div class="container-fluid" >
+                  <div class="col-lg-12">
+                     <div class="profile card card-body px-3 pt-3 pb-0">
+                        <div class="profile-head">
+                           <div class="photo-content">
+                              <div class="cover-photo rounded"></div>
+                           </div>
+                           <div class="profile-info">
+                              <div class="profile-photo">
+                                 <img src="images\profile\profile.png" class="img-fluid rounded-circle" alt="">
+                              </div>
+                              <div class="profile-details">
+                                
+                                
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container-fluid">
+            <div class="card">
+               <div class="card-body">
+                 <div class="settings-form">
+                     <h4 class="text-primary">Add Course</h4>
+        
+                     {% include 'includes/messages.html' %}
+                     
+                     <form action="{% url 'add_course' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                           <div class="form-group">
+                             <div class="mb-3 col-md-12">
+                                <label class="form-label">Image</label>
+                                <input type="file"  class="form-control" value= "" name="profile_course_pic" required>
+                             </div>
+                           <div class="mb-3 col-md-12">
+                              <label class="form-label">Instructor Name</label>
+                              <input type="text"  class="form-control" value= "" name="instructor_name" required>
+                           </div>
+                          </div>
+                           <div class="mb-3 col-md-12">
+                             <label class="form-label">Course Name</label>
+                             <input type="text"  class="form-control" value= "" name="course_name" required>
+                          </div>
+                          <div class="mb-3 col-md-12">
+                             <label class="form-label">Course Price</label>
+                             <input type="text"  class="form-control" value= "" name="course_price" required>
+                          </div>
+                        <div class = "col-md-6">
+                           <button type="submit" class= "btn btn-primary">Add Course</button>
+                        </div>
+                       
+                        
+                     </form>
+                  </div>
+                 
+               </div>
+            </div>
+         </div>
+         </div>
+    </div>
+</div>
+
+ 
+{% endblock main-content %}
